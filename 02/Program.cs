@@ -1,0 +1,58 @@
+﻿// Напишите программу, которая на вход принимает 
+// позиции элемента в двумерном массиве,
+// и возвращает значение этого элемента или же указание,
+// что такого элемента нет.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 17 -> такого элемента в массиве нет
+
+Console.Clear();
+Console.Write("Введите номер строки: ");
+int rowElement = int.Parse(Console.ReadLine() ?? "");
+
+Console.Write("Введите номер столбца: ");
+int columnElement = int.Parse(Console.ReadLine() ?? "");
+
+int[,] array = GetArray(3, 4, 0, 100);
+PrintArray(array);
+
+CheckElement(array, rowElement, columnElement);
+
+int[,] GetArray(int m, int n, int minValue, int maxValue)
+{
+    int[,] result = new int[m, n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            result[i, j] = new Random().Next(minValue, maxValue + 1);
+        }
+    }
+    return result;
+}
+
+void PrintArray(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+
+void CheckElement(int[,] array, int m, int n)
+{
+    if (m > array.GetLength(0) || n > array.GetLength(1))
+    {
+        Console.WriteLine($"{m}, {n} -> такого элемента в массиве нет");
+    }
+    else
+    {
+        Console.WriteLine($"Позиции строки {m} и столбца {n} равны числу {array[m - 1, n - 1]}");
+    }
+}

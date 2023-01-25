@@ -1,5 +1,9 @@
 ﻿//Задайте двумерный массив размером m×n, 
 //заполненный случайными вещественными числами
+// m = 3, n = 4.
+// 0,5 7 -2 -0,2
+// 1 -3,3 8 -9,9
+// 8 7,8 -7,1 9
 
 Console.Clear();
 Console.Write("Введите количество строк массива: ");
@@ -18,7 +22,7 @@ double[,] GetArray(int m, int n)
     {
         for (int j = 0; j < n; j++)
         {
-            result[i, j] = Convert.ToDouble(new Random().Next(-10, 10)) / 10;
+            result[i, j] = Convert.ToDouble(new Random().Next(-100, 100)) / 10;
         }
     }
     return result;
