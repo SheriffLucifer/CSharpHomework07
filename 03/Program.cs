@@ -53,7 +53,7 @@ void FindAverageFromColumns(int[,] array, int n)
         {
             average += array[i, j];
         }
-        average = Math.Round(average / n, 2);
+        average = Math.Round(average / n, 1);
         Console.Write($"{average}; ");
     }
 }
